@@ -14,6 +14,7 @@ export class CardContentGuidComponent {
   public uppercase:boolean = false;
   public dataGenarated:string = "";
 
+
   public selectCheckBox(option:string){
     switch (option) {
       case 'braces':
