@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'GoHorseDeveloperToolKit'`, () => {
+  it(`should have as title 'tollkit-project'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('GoHorseDeveloperToolKit');
+    expect(app.title).toEqual('tollkit-project');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('GoHorseDeveloperToolKit app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('tollkit-project app is running!');
   });
 });

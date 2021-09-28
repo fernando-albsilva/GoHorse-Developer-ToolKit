@@ -1,0 +1,30 @@
+
+.component-container{
+  height: 100%;
+  width: 100%;
+
+  span,li{
+    margin-bottom: 15px;
+    color: #768390;
+    font-weight: 500;
+    font-size: 16px;
+
+  }
+
+  .img-container{
+    display: flex;
+    align-items: center;
+    height: calc(100% - 170px);
+    justify-content: space-around;
+
+    .img-go-horse{
+      height: 200px;
+    }
+  }
+
+  ::marker{
+    color:#539bf5
+  }
+
+
+}

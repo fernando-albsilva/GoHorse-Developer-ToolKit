@@ -1,0 +1,41 @@
+<div class="component-container">
+  <span class="content-title">Go Horse GUID / UUID Generator</span>
+
+  <!-- Row of inputs -->
+  <div class="row-container">
+
+    <span class="input-container">
+      <span class="input-label not-selectable">Quantity:</span>
+      <input class="input" (keyup)="removeCharThatAreNotNumbers()" [(ngModel)]="quantity" type="text" name="quantity" >
+    </span>
+
+    <span class="input-container">
+      <span class="input-label not-selectable">&#123; &#125;	Braces:</span>
+      <span [ngClass]="{'check-box not-selectable':true,'not-selected':!braces,'selected':braces}" (click)="selectCheckBox('braces')">
+        {{braces ? 'x' : ''}}
+      </span>
+    </span>
+
+    <span class="input-container">
+      <span class="input-label not-selectable"> - Hypens:</span>
+      <span [ngClass]="{'check-box not-selectable':true,'not-selected':!hypens,'selected':hypens}" (click)="selectCheckBox('hypens')">
+        {{hypens ? 'x' : ''}}
+      </span>
+    </span>
+
+    <span class="input-container">
+      <span class="input-label not-selectable">Uppercase:</span>
+      <span [ngClass]="{'check-box not-selectable':true,'not-selected':!uppercase,'selected':uppercase}" (click)="selectCheckBox('uppercase')">
+        {{uppercase ? 'x' : ''}}
+      </span>
+    </span>
+
+  </div>
+
+  <div class="generete-btn-char-counter-container">
+    <button class="generate-btn" (click)="generateGuid()">Generate Guid</button>
+    <button class="generate-btn" [cdkCopyToClipboard]="dataGenarated" >Copy To Clipboard</button>
+  </div>
+
+   <textarea class="text-area" [(ngModel)]="dataGenarated" name="dataGenarated" spellcheck="false"></textarea>
+</div>

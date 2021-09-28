@@ -1,0 +1,26 @@
+<tk-menu-nav
+(changeMainCardContent)="changeMainCardContent($event)">
+</tk-menu-nav>
+
+<div class="content-container">
+  <tk-menu-side-tools
+  (changeMainCardContent)="changeMainCardContent($event)">
+  </tk-menu-side-tools>
+
+  <div class="main-content">
+    <!-- card Label -->
+    <div class="main-content-label-container">
+        <span class="main-label-text">{{cardLabel}}</span>
+    </div>
+
+    <!-- card content -->
+    <div class="card-content-container">
+
+      <div class="content">
+        <ng-template #cardContentContainerRef></ng-template>
+      </div>
+
+    </div>
+  </div>
+</div>
+

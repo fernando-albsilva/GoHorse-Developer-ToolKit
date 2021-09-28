@@ -1,0 +1,22 @@
+<div class="component-container">
+  <span class="content-title">Go Horse Text Manipulator</span>
+
+  <!-- Row of inputs -->
+  <div class="row-container">
+
+      <button (click)="transformInUppercase()" >UpperCase</button>
+      <button (click)="transformInLowerCase()">LowerCase</button>
+      <button (click)="trasnformInPhraseFormat()">Phrase Format</button>
+      <button (click)="trasnformInAlternateFormat()">Alternate Format</button>
+      <button (click)="clearTextArea()">Clear</button>
+
+  </div>
+
+  <div class="generete-btn-char-counter-container">
+    <button class="generate-btn" [cdkCopyToClipboard]="dataGenarated" >Copy To Clipboard</button>
+    <span class="char-counter">Total characters : {{totalChars}}</span>
+  </div>
+  <span class="text-area-label">just put the text below dude!</span>
+  <textarea class="text-area" [(ngModel)]="dataGenarated" (keyup)="countChars()" name="dataGenarated" spellcheck="false"></textarea>
+
+</div>

@@ -1,0 +1,27 @@
+
+.component-container{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .content-title{
+    color: #adbac7;
+    font-weight: 600 ;
+    font-size: 14px;
+  }
+
+  .row-container{
+    display: flex;
+    align-items: center;
+    margin-top: 25px;
+  }
+
+
+  .default-btn{
+    width: 200px;
+  }
+}
+
+
+
