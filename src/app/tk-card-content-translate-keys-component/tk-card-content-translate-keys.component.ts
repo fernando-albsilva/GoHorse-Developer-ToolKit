@@ -14,6 +14,7 @@ export class CardContentTranslateKeysComponent {
   public inputData:string = "";
   public outputData:string = "";
 
+
   public selectCheckBox(option:string){
     switch (option) {
       case 'generalKey':
@@ -59,6 +60,16 @@ export class CardContentTranslateKeysComponent {
     let contextToUse = this.getContext();
     let lineBreaker = '\n';
     key = key.split('.').join('_').toUpperCase();
+
+    if(text === undefined || text === null || text === "")
+    {
+      text = "!!!!!!TEXTO NÃO INFORMADO!!!!!!!";
+    }
+
+    if(key === undefined || key === null || key === "")
+    {
+      key = "!!!!!!CHAVE NÃO INFORMADA!!!!!!!";
+    }
 
     if(this.context === "")
     {
