@@ -6,6 +6,7 @@ import { CardContentSqlViewComponent } from '../tk-card-content-sql-view-compone
 import { CardContentTextComponent } from '../tk-card-content-text-component/tk-card-content-text.component';
 import { CardContentTranslateKeysComponent } from '../tk-card-content-translate-keys-component/tk-card-content-translate-keys.component';
 import { CardContentWelcomeComponent } from '../tk-card-content-welcome-component/tk-card-content-welcome.component';
+import { CardContentPageInDevelopmentComponent } from './../tk-card-content-page-in-development-component/tk-card-content-page-in-development.component';
 
 export class ListOfComponents {
 
@@ -15,6 +16,7 @@ export class ListOfComponents {
   public translateKeysComponent:any = CardContentTranslateKeysComponent;
   public sqlComponent:any = CardContentSqlComponent;
   public sqlViewComponent:any = CardContentSqlViewComponent;
+  public pageInDevelpment:any = CardContentPageInDevelopmentComponent;
 
 }
 
@@ -72,7 +74,7 @@ export class HomeComponent extends ListOfComponents implements OnInit, OnDestroy
           break;
 
       case 'sql':
-          this.createComponent(this.sqlComponent);
+          this.createComponent(this.pageInDevelpment);
           break;
 
       case 'sqlview':

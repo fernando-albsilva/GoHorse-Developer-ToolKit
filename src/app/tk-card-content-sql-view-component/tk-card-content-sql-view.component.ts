@@ -39,63 +39,94 @@ export class CardContentSqlViewComponent {
     }
   }
 
-  public generateKeys(){
+  public generateView(){
 
-    let slicedLines: Array<string> = [];
-    let outPutKeys:string = "";
+    this.outputData = "";
+    // let slicedLines: Array<string> = [];
+    // let outPutKeys:string = "";
 
-    slicedLines = this.inputData.split('\n');
-    console.log(slicedLines);
+    // slicedLines = this.inputData.split('\n');
+    // console.log(slicedLines);
 
-    slicedLines.forEach(line => {
-      outPutKeys +=this.transformLine(line);
-    });
+    // slicedLines.forEach(line => {
+    //   outPutKeys +=this.transformLine(line);
+    // });
 
-    this.outputData = outPutKeys;
+    this.outputData = this.transformLine();
   }
 
-  private transformLine(line:string){
-    let keyText = line.split('/');
-    let key = keyText[0];
-    let text = keyText[1];
-    let keyType = this.getKeyType();
-    let contextToUse = this.getContext();
-    let lineBreaker = '\n';
-    key = key.split('.').join('_').toUpperCase();
+  private transformLine(){
 
-    if(this.viewName === "")
+    let lineBreaker='\n';
+    let viewCode = "";
+    this.verifySchema();
+    viewCode = `${this.addComentCommand()}${lineBreaker}`;
+    viewCode += `${this.addCreateCommand()}${lineBreaker}`;
+    viewCode += `${this.addSelectCommand()}${lineBreaker}`;
+
+    return viewCode;
+
+  }
+
+  private verifySchema(){
+    if(this.schemaName === '')
     {
-      return `kli text translate add "${text}" ${keyType+key} 1${lineBreaker}`;
-    }
-    else{
-      return `kli text translate add "${text}" ${keyType+contextToUse+key} 1${lineBreaker}`;
+      this.schemaName = "dbo";
     }
   }
 
-  private getKeyType(){
-   if(this.createView){
-     return "";
-   }
-   if(this.alterView){
-     return "JS__ANGULAR1__";
-   }
-   if(this.dropView){
-     return "JS__COMMON__";
-   }
-   return "";
+  private addComentCommand(){
+    let lineBreaker='\n';
+    if(this.createView)
+    {
+      return `-- Criando view ${this.viewName} ${this.coment}${lineBreaker}`
+    }
+    if(this.alterView)
+    {
+      return `-- Alterando view ${this.viewName} ${this.coment}${lineBreaker}`
+    }
+    if(this.dropView)
+    {
+      return `-- Deletando view ${this.viewName} ${this.coment}${lineBreaker}`
+    }
+    return "";
   }
 
-  private getContext(){
-    let data = this.viewName.split('.').join('_').toUpperCase();
-    return `${data}__`
+  private addCreateCommand(){
+    let lineBreaker='\n';
+    let verifyIfExist = `DROP VIEW IF EXISTS [${this.schemaName}].[${this.viewName}]${lineBreaker}${lineBreaker}GO${lineBreaker}${lineBreaker}`;
+    if(this.createView)
+    {
+      return `${verifyIfExist}CREATE VIEW [${this.schemaName}].[${this.viewName}]`
+    }
+    if(this.alterView)
+    {
+      return `ALTER VIEW [${this.schemaName}].[${this.viewName}]`
+    }
+    if(this.dropView)
+    {
+      return `DROP VIEW [${this.schemaName}].[${this.viewName}]`
+    }
+    return "";
   }
+
+  private addSelectCommand(){
+    let lineBreaker='\n';
+    if(this.dropView)
+    {
+      return `${lineBreaker}GO`
+    }else{
+      return `${lineBreaker}AS${lineBreaker}${this.inputData}${lineBreaker}${lineBreaker}GO`
+    }
+  }
+
   private clearOtherCheckBoxes(option:string){
     if(option === 'createView')
     {
       this.alterView = false;
       this.dropView = false;
     }
-    if(option === 'angularJsKey')
+    if(option === 'alterView')
     {
       this.createView = false;
       this.dropView = false;
@@ -108,15 +139,19 @@ export class CardContentSqlViewComponent {
   }
 
   public fillWithExempleData(){
-   this.clearKeys();
-    this.viewName='report.builder';
-    this.inputData = `query.must.have.tenant/Consulta precisa ter um cliente\nquery.not.found/Consulta não encontrada`;
-    this.outputData = `kli text translate add "Consulta precisa ter um cliente" JS__COMMON__REPORT_BUILDER__QUERY_MUST_HAVE_TENANT 1\nkli text translate add "Consulta não encontrada" JS__COMMON__REPORT_BUILDER__QUERY_NOT_FOUND 1`;
+    this.clearKeys();
+    this.coment = "para atender a demanda."
+    this.schemaName = "UserContext";
+    this.viewName='FuncionarioView';
+    this.inputData = `SELECT\n  FuncName as [Name]\n, FuncCpf as [Cpf]\nFROM\n  [dbo].[Usuario]\nWHERE\n  FuncDeleted = 0`;
+    this.generateView();
   }
 
   public clearAll() {
     this.clearKeys();
-    this.viewName='';
+    this.coment = '';
+    this.schemaName = '';
+    this.viewName = '';
     this.inputData = '';
     this.outputData = '';
   }
