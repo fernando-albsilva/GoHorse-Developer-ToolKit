@@ -15,11 +15,12 @@
   .row-container{
     display: flex;
     align-items: center;
+    justify-content: space-between;
     margin-bottom: 20px;
     margin-top: 10px;
 
     button{
-      width: 150px;
+      min-width: 150px;
       margin-right: 20px;
     }
   }
@@ -28,10 +29,14 @@
      display: flex;
      align-items: center;
      margin-bottom: 20px;
+     gap: 25px;
+
+     button{
+      width: 150px;
+    }
 
      .generate-btn{
        width: 200px;
-       margin-right: 40px;
      }
 
     .char-counter{
