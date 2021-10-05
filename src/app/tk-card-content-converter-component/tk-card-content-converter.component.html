@@ -87,14 +87,18 @@
   </div>
 
   <div class="convert-clear-row">
-    <button class="btn" (click)="convert()">Convert!</button>
-    <button class="btn" (click)="clearAll()">Clear All</button>
+    <div>
+      <button class="btn" (click)="convert()">Convert!</button>
+    </div>
+    <div>
+      <button class="btn" (click)="clearAll()">Clear All</button>
+    </div>
   </div>
 
   <div class="text-areas-container">
     <div class="input-text-area">
       <button class="clip-board-btn" [cdkCopyToClipboard]="inputData" >Copy To Clipboard</button>
-      <textarea class="text-area" [(ngModel)]="inputData" name="inputData" spellcheck="false"></textarea>
+      <textarea class="text-area" [(ngModel)]="inputData" name="inputData" spellcheck="false" (keyup)="checkChars()"></textarea>
     </div>
 
     <div class="output-text-area">

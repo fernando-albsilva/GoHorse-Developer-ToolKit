@@ -99,7 +99,12 @@
   .convert-clear-row{
     margin-bottom: 20px;
     display: flex;
-    gap: 216px;
+    width: 100%;
+    gap: 20px;
+
+    div{
+      width: calc(50% - 10px);
+    }
   }
 
   .btn, .clip-board-btn{

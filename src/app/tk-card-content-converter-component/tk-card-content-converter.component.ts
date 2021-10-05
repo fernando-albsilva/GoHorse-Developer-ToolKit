@@ -7,14 +7,14 @@ import { Component } from '@angular/core';
 })
 export class CardContentConverterComponent {
 
-  public inBinary:boolean = false;
+  public inBinary:boolean = true;
   public inOctal:boolean = false;
   public inDecimal:boolean = false;
-  public inHex:boolean = true;
+  public inHex:boolean = false;
 
-  public outBinary:boolean = true;
+  public outBinary:boolean = false;
   public outOctal:boolean = false;
-  public outDecimal:boolean = false;
+  public outDecimal:boolean = true;
   public outHex:boolean = false;
 
   public context:string = "";
@@ -127,17 +127,13 @@ export class CardContentConverterComponent {
   }
 
   public fillWithExempleData(){
-   this.clearKeys();
-    this.context='report.builder';
-    this.inputData = `query.must.have.tenant/Consulta precisa ter um cliente\nquery.not.found/Consulta não encontrada`;
-    this.outputData = `kli text translate add "Consulta precisa ter um cliente" JS__COMMON__REPORT_BUILDER__QUERY_MUST_HAVE_TENANT 1\nkli text translate add "Consulta não encontrada" JS__COMMON__REPORT_BUILDER__QUERY_NOT_FOUND 1`;
+    this.clearKeys();
+    this.inputData = "111001";
+    this.convert();
   }
 
   public clearAll() {
     this.clearKeys();
-    this.context='';
-    this.inputData = '';
-    this.outputData = '';
   }
 
   public convert() {
@@ -156,28 +152,36 @@ export class CardContentConverterComponent {
     }else{
       this.outputData = this.inputData;
     }
+  }
 
-
-    // if(this.inBinary && this.outDecimal)
-    // {
-    //   this.outputData = this.convertToDecimalAndOthers(this.inputData);
+  public checkChars(){
+    //TODO
+    // console.log("chamou")
+    // let data;
+    // if(this.inBinary){
+    //   let rgx = /^[0-1]{1,}$/;
+    //   data = this.inputData.match(rgx);
+    //   if(data !== null) { this.inputData = data.toString()}
+    //   else { this.inputData = this.inputData.slice(0, -1);}
     // }
-    // else if(this.inBinary && this.outOctal)
-    // {
-    //   let data;
-    //   data = this.convertToDecimalAndOthers(this.inputData);
-    //   this.outputData = this.convertFromDecimalAndOthers(data);
+    // if(this.inOctal){
+    //   let rgx = /^[0-7]{1,}$/;
+    //   data = this.inputData.match(rgx);
+    //   if(data !== null) { this.inputData = data.toString()}
+    //   else { this.inputData = this.inputData.slice(0, -1);}
     // }
-    // else if( this.inDecimal && (this.outBinary || this.outOctal || this.outHex))
-    // {
-    //   this.outputData = this.convertFromDecimalAndOthers(this.inputData).toString();
+    // if(this.inDecimal){
+    //   let rgx = /^[0-9]{1,}$/;
+    //   data = this.inputData.match(rgx);
+    //   if(data !== null) { this.inputData = data.toString()}
+    //   else { this.inputData = this.inputData.slice(0, -1);}
     // }
-    // else{
-    //   this.outputData = this.inputData;
+    // if(this.inHex){
+    //   let rgx = /\b[0-9A-F]+\b/;
+    //   data = this.inputData.match(rgx);
+    //   if(data !== null) { this.inputData = data.toString()}
+    //   else { this.inputData = this.inputData.slice(0, -1);}
     // }
-
-
-
   }
 
   private convertToDecimal(data:any){
@@ -325,9 +329,17 @@ export class CardContentConverterComponent {
   }
 
   private clearKeys(){
-    this.inHex = true;
-    this.inBinary = false;
+    this.inBinary = true;
     this.inOctal = false;
+    this.inDecimal = false;
+    this.inHex = false;
+    this.outBinary = false;
+    this.outOctal = false;
+    this.outDecimal = true;
+    this.outHex = false;
+    this.inputData = "";
+    this.outputData = "";
   }
+
 
 }
