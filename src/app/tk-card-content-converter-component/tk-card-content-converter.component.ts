@@ -142,48 +142,49 @@ export class CardContentConverterComponent {
 
   public convert() {
 
-    if(this.inBinary || this.inOctal || this.inHex && this.outDecimal)
-    {
-      this.outputData = this.convertToDecimalAndOthers(this.inputData);
+    if(this.inDecimal && !this.outDecimal){
+      this.outputData = this.convertFromDecimal(this.inputData);
     }
-    else if( this.inDecimal && this.outBinary || this.outOctal || this.outHex)
-    {
-      this.outputData = this.convertFromDecimalAndOthers(this.inputData).toString();
-    }
-    else{
-      this.outputData = this.inputData;
-    }
+
+    // if(this.inBinary && this.outDecimal)
+    // {
+    //   this.outputData = this.convertToDecimalAndOthers(this.inputData);
+    // }
+    // else if(this.inBinary && this.outOctal)
+    // {
+    //   let data;
+    //   data = this.convertToDecimalAndOthers(this.inputData);
+    //   this.outputData = this.convertFromDecimalAndOthers(data);
+    // }
+    // else if( this.inDecimal && (this.outBinary || this.outOctal || this.outHex))
+    // {
+    //   this.outputData = this.convertFromDecimalAndOthers(this.inputData).toString();
+    // }
+    // else{
+    //   this.outputData = this.inputData;
+    // }
 
 
 
   }
 
-  private convertToDecimalAndOthers(data:any){
+  private convertToDecimal(data:any){
 
     if(this.inBinary) {
-      data = parseInt(this.inputData).toString(2);
+      data = parseInt(this.inputData,2).toString();
     }
     if(this.inOctal){
-      data = parseInt(this.inputData).toString(8);
+      data = parseInt(this.inputData,8).toString();
     }
     if(this.inHex){
-      data  = parseInt(this.inputData).toString(16);
+      data  = parseInt(this.inputData,16).toString();
     }
 
     return data;
   }
 
-  private convertFromDecimalAndOthers(data:any){
+  private convertFromDecimal(data:any){
 
-    // if(this.outBinary) {
-    //   data = parseInt(this.inputData,2);
-    // }
-    // if(this.outOctal){
-    //   data = parseInt(this.inputData,8);
-    // }
-    // if(this.outHex){
-    //   data  = parseInt(this.inputData,16);
-    // }
     if(this.outBinary) {
       data = this.verifyNeddsForAddZero(parseInt(this.inputData).toString(2),"bin");
     }
@@ -203,8 +204,13 @@ export class CardContentConverterComponent {
     if(base === "bin"){
       rest = data.length % 4;
       if(rest > 0){
+        rest = 4 - rest;
         data = this.addZero(rest,data);
         data = this.addSpace(base,data);
+      }else{
+        if(data.length>4){
+          data = this.addSpace(base,data);
+        }
       }
     }
 
@@ -215,6 +221,10 @@ export class CardContentConverterComponent {
         rest = 3 - rest;
         data = this.addZero(rest,data)
         data = this.addSpace(base,data);
+      }else{
+        if(data.length>3){
+          data = this.addSpace(base,data);
+        }
       }
     }
 
@@ -233,7 +243,7 @@ export class CardContentConverterComponent {
     if((base === "bin") && data.length > 4)
     {
       let newData;
-      newData = data.match(/.{1,4}/g);
+      newData = data.split( /(?=(?:....)*$)/ );
       if(newData !== null){
         data = newData.join(' ');
       };
