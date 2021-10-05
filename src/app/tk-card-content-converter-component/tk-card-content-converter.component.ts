@@ -146,6 +146,10 @@ export class CardContentConverterComponent {
       this.outputData = this.converFromBynari(this.inputData);
     }
 
+    if(this.inOctal && !this.outOctal){
+      this.outputData = this.convertFromOctal(this.inputData);
+    }
+
     if(this.inDecimal && !this.outDecimal){
       this.outputData = this.convertFromDecimal(this.inputData);
     }
@@ -197,7 +201,20 @@ export class CardContentConverterComponent {
       data =  parseInt(data, 2).toString();
     }
     if(this.outHex){
-      data =  this.addSpace("hex",parseInt(data, 2).toString(16));
+      data =  this.addSpace("hex",parseInt(data, 2).toString(16)).toUpperCase();
+    }
+    return data;
+  }
+
+  private convertFromOctal(data:any){
+    if(this.outBinary){
+      data =  this.verifyNeddsForAddZero(parseInt(data, 8).toString(2),"bin");
+    }
+    if(this.outDecimal){
+      data =  parseInt(data, 8).toString();
+    }
+    if(this.outHex){
+      data =  this.addSpace("hex",parseInt(data, 8).toString(16)).toUpperCase();
     }
     return data;
   }
