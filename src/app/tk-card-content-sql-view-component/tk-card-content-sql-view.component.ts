@@ -42,16 +42,6 @@ export class CardContentSqlViewComponent {
   public generateView(){
 
     this.outputData = "";
-    // let slicedLines: Array<string> = [];
-    // let outPutKeys:string = "";
-
-    // slicedLines = this.inputData.split('\n');
-    // console.log(slicedLines);
-
-    // slicedLines.forEach(line => {
-    //   outPutKeys +=this.transformLine(line);
-    // });
-
     this.outputData = this.transformLine();
   }
 

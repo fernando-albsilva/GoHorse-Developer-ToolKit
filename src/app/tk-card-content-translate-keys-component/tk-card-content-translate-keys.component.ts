@@ -43,7 +43,6 @@ export class CardContentTranslateKeysComponent {
     let outPutKeys:string = "";
 
     slicedLines = this.inputData.split('\n');
-    console.log(slicedLines);
 
     slicedLines.forEach(line => {
       outPutKeys +=this.transformLine(line);

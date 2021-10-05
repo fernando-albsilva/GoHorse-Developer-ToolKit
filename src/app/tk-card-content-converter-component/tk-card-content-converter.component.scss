@@ -1,0 +1,156 @@
+
+.component-container{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .content-title{
+    color: #adbac7;
+    font-weight: 600 ;
+    font-size: 14px;
+  }
+
+  .exepmle-btn{
+    width: 200px;
+    margin-left: 50px;
+  }
+
+  .row-container{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin: 20px 0px;
+
+
+
+    .label-and-check-box-container{
+        width: calc(50% - 10px);
+        display: flex;
+        flex-direction: column;
+
+      .check-box-label{
+        width: 58px;
+        box-sizing: border-box;
+        padding: 5px 10px;
+        border:1px solid #444c56;
+        border-radius: 4px;
+        color: #adbac3;
+        position: relative;
+        top: 16px;
+        left: 20px;
+        background-color: #22272e;
+      }
+
+      .check-container{
+        width: 100%;
+        display: flex;
+        gap: 20px;
+        box-sizing: border-box;
+        padding: 0px 10px;
+        border:1px solid #444c56;
+        border-radius: 4px;
+
+        .input-container{
+          display: flex;
+          flex-direction: column;
+          margin: 20px 40px 20px 0px;
+
+          .input-label{
+            color: #adbac3;
+            font-weight: 500 ;
+            font-size: 14px;
+            margin-bottom: 10px;
+          }
+
+          .input{
+            width: 100px;
+            height: 25px;
+            padding: 0px 15px;
+            border-radius: 4px;
+            border:1px solid #444c56;
+            color: #adbac3;
+            font-weight: 500 ;
+            font-size: 14px;
+          }
+
+          .check-box{
+            height: 25px;
+            width: 25px;
+            border-radius: 4px;
+            border:1px solid #444c56;
+            text-align: center;
+            cursor: pointer;
+          }
+
+          .not-selected{
+            background-color: transparent;
+          }
+
+          .selected{
+            background-color: #2d333b;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+
+  .convert-clear-row{
+    margin-bottom: 20px;
+    display: flex;
+    gap: 216px;
+  }
+
+  .btn, .clip-board-btn{
+    width: 200px;
+    margin-right: 40px;
+  }
+
+  .btn:active{
+    position: relative;
+    top: 1px;
+  }
+
+  .clip-board-btn{
+    margin-bottom: 20px;
+  }
+
+  .text-areas-container{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    height: 100%;
+    justify-content: space-between;
+
+    .input-text-area{
+      width: calc(50% - 10px);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .output-text-area{
+      width: calc(50% - 10px);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+  }
+
+  .text-area{
+    box-sizing: border-box;
+    height: calc(100% - 190px);
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    padding:15px;
+    border-radius: 4px;
+    border:1px solid #444c56;
+    color: #adbac3;
+    font-weight: 500 ;
+    font-size: 14px;
+  }
+}
+

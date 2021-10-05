@@ -16,6 +16,8 @@ import { CardContentSqlComponent } from './tk-card-content-sql-component/tk-card
 import { CardContentPageInDevelopmentComponent } from './tk-card-content-page-in-development-component/tk-card-content-page-in-development.component';
 import { CardContentSqlViewComponent } from './tk-card-content-sql-view-component/tk-card-content-sql-view.component';
 import { ClipboardModule } from '@angular/cdk/clipboard';
+import { CardContentHallOfShameComponent } from './tk-card-content-hall-of-shame-component/tk-card-content-hall-of-shame.component';
+import { CardContentConverterComponent } from './tk-card-content-converter-component/tk-card-content-converter.component';
 
 
 
@@ -32,7 +34,9 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
     CardContentTranslateKeysComponent,
     CardContentSqlComponent,
     CardContentPageInDevelopmentComponent,
-    CardContentSqlViewComponent
+    CardContentSqlViewComponent,
+    CardContentHallOfShameComponent,
+    CardContentConverterComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +45,6 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
     ClipboardModule
   ],
   providers: [],
-  bootstrap: [AppComponent]//,
- // entryComponents: [CardContentWelcomeComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

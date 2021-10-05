@@ -1,9 +1,11 @@
 import { AfterViewInit, Component, ComponentFactoryResolver, OnDestroy, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 
 import { CardContentGuidComponent } from '../tk-card-content-guid-component/tk-card-content-guid.component';
+import { CardContentHallOfShameComponent } from '../tk-card-content-hall-of-shame-component/tk-card-content-hall-of-shame.component';
 import { CardContentSqlComponent } from '../tk-card-content-sql-component/tk-card-content-sql.component';
 import { CardContentSqlViewComponent } from '../tk-card-content-sql-view-component/tk-card-content-sql-view.component';
 import { CardContentTextComponent } from '../tk-card-content-text-component/tk-card-content-text.component';
+import { CardContentConverterComponent } from '../tk-card-content-converter-component/tk-card-content-converter.component';
 import { CardContentTranslateKeysComponent } from '../tk-card-content-translate-keys-component/tk-card-content-translate-keys.component';
 import { CardContentWelcomeComponent } from '../tk-card-content-welcome-component/tk-card-content-welcome.component';
 import { CardContentPageInDevelopmentComponent } from './../tk-card-content-page-in-development-component/tk-card-content-page-in-development.component';
@@ -13,10 +15,12 @@ export class ListOfComponents {
   public welcomeComponent :any = CardContentWelcomeComponent;
   public guidComponent:any = CardContentGuidComponent;
   public textComponent:any = CardContentTextComponent;
-  public translateKeysComponent:any = CardContentTranslateKeysComponent;
   public sqlComponent:any = CardContentSqlComponent;
   public sqlViewComponent:any = CardContentSqlViewComponent;
+  public converter:any = CardContentConverterComponent;
+  public translateKeysComponent:any = CardContentTranslateKeysComponent;
   public pageInDevelpment:any = CardContentPageInDevelopmentComponent;
+  public hallOfShame:any = CardContentHallOfShameComponent;
 
 }
 
@@ -42,7 +46,6 @@ export class HomeComponent extends ListOfComponents implements OnInit, OnDestroy
 
   ngAfterViewInit(){
     this.createComponent(this.chosenComponent);
-    // console.log(this.container);
   }
 
   ngOnDestroy(): void {
@@ -54,7 +57,6 @@ export class HomeComponent extends ListOfComponents implements OnInit, OnDestroy
   }
 
   public changeMainCardContent(option:string){
-    console.log("chamou")
     option = option.toLowerCase();
     switch (option) {
       case 'guid':
@@ -69,19 +71,27 @@ export class HomeComponent extends ListOfComponents implements OnInit, OnDestroy
           this.createComponent(this.textComponent);
           break;
 
+      case 'converter':
+        this.createComponent(this.converter);
+        break;
+
+      case 'sqlview':
+        this.createComponent(this.sqlViewComponent);
+        break;
+
       case 'translatekeys':
           this.createComponent(this.translateKeysComponent);
           break;
 
-      case 'sql':
-          this.createComponent(this.pageInDevelpment);
+      case 'pageindevelopment':
+        this.createComponent(this.pageInDevelpment);
+        break;
+
+      case 'hallofshame':
+          this.createComponent(this.hallOfShame);
           break;
 
-      case 'sqlview':
-          this.createComponent(this.sqlViewComponent);
-          break;
-
-          default:
+      default:
         this.createComponent(this.welcomeComponent);
         break;
     }

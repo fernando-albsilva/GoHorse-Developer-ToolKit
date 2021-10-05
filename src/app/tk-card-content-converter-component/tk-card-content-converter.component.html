@@ -1,0 +1,106 @@
+<div class="component-container">
+
+  <span class="content-title">Go Horse Translate Keys Generator:
+  <button class="exepmle-btn" (click)="fillWithExempleData()">Clique Here For Exemple</button>
+</span>
+
+  <div class="row-container">
+
+
+    <!-- From check box container -->
+    <div class="label-and-check-box-container">
+
+      <span class="check-box-label">From</span>
+
+      <div class="check-container">
+
+        <span class="input-container">
+          <span class="input-label not-selectable">Binary:</span>
+          <span [ngClass]="{'check-box not-selectable':true,'not-selected':!inBinary,'selected':inBinary}" (click)="selectCheckBox('inBinary')">
+            {{inBinary ? 'x' : ''}}
+          </span>
+        </span>
+
+        <span class="input-container">
+          <span class="input-label not-selectable"> Octal:</span>
+          <span [ngClass]="{'check-box not-selectable':true,'not-selected':!inOctal,'selected':inOctal}" (click)="selectCheckBox('inOctal')">
+            {{inOctal ? 'x' : ''}}
+          </span>
+        </span>
+
+        <span class="input-container">
+          <span class="input-label not-selectable">Decimal:</span>
+          <span [ngClass]="{'check-box not-selectable':true,'not-selected':!inDecimal,'selected':inDecimal}" (click)="selectCheckBox('inDecimal')">
+            {{inDecimal ? 'x' : ''}}
+          </span>
+        </span>
+
+        <span class="input-container">
+          <span class="input-label not-selectable">Hexa:</span>
+          <span [ngClass]="{'check-box not-selectable':true,'not-selected':!inHex,'selected':inHex}" (click)="selectCheckBox('inHex')">
+            {{inHex ? 'x' : ''}}
+          </span>
+        </span>
+
+
+      </div>
+    </div>
+
+    <!-- To check box container -->
+    <div class="label-and-check-box-container">
+
+      <span class="check-box-label">To</span>
+
+      <div class="check-container">
+
+        <span class="input-container">
+          <span class="input-label not-selectable">Binary:</span>
+          <span [ngClass]="{'check-box not-selectable':true,'not-selected':!outBinary,'selected':outBinary}" (click)="selectCheckBox('outBinary')">
+            {{outBinary ? 'x' : ''}}
+          </span>
+        </span>
+
+        <span class="input-container">
+          <span class="input-label not-selectable"> Octal:</span>
+          <span [ngClass]="{'check-box not-selectable':true,'not-selected':!outOctal,'selected':outOctal}" (click)="selectCheckBox('outOctal')">
+            {{outOctal ? 'x' : ''}}
+          </span>
+        </span>
+
+        <span class="input-container">
+          <span class="input-label not-selectable"> Decimal:</span>
+          <span [ngClass]="{'check-box not-selectable':true,'not-selected':!outDecimal,'selected':outDecimal}" (click)="selectCheckBox('outDecimal')">
+            {{outDecimal ? 'x' : ''}}
+          </span>
+        </span>
+
+        <span class="input-container">
+          <span class="input-label not-selectable">Hexa:</span>
+          <span [ngClass]="{'check-box not-selectable':true,'not-selected':!outHex,'selected':outHex}" (click)="selectCheckBox('outHex')">
+            {{outHex ? 'x' : ''}}
+          </span>
+        </span>
+
+      </div>
+    </div>
+
+  </div>
+
+  <div class="convert-clear-row">
+    <button class="btn" (click)="convert()">Convert!</button>
+    <button class="btn" (click)="clearAll()">Clear All</button>
+  </div>
+
+  <div class="text-areas-container">
+    <div class="input-text-area">
+      <button class="clip-board-btn" [cdkCopyToClipboard]="inputData" >Copy To Clipboard</button>
+      <textarea class="text-area" [(ngModel)]="inputData" name="inputData" spellcheck="false"></textarea>
+    </div>
+
+    <div class="output-text-area">
+      <button class="clip-board-btn" [cdkCopyToClipboard]="outputData" >Copy To Clipboard</button>
+      <textarea class="text-area" [(ngModel)]="outputData" name="outputData" spellcheck="false"></textarea>
+    </div>
+  </div>
+
+</div>
