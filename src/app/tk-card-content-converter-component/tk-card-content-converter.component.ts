@@ -142,9 +142,14 @@ export class CardContentConverterComponent {
 
   public convert() {
 
+    if(this.inBinary && !this.outBinary){
+      this.outputData = this.converFromBynari(this.inputData);
+    }
+
     if(this.inDecimal && !this.outDecimal){
       this.outputData = this.convertFromDecimal(this.inputData);
     }
+
 
     // if(this.inBinary && this.outDecimal)
     // {
@@ -180,6 +185,20 @@ export class CardContentConverterComponent {
       data  = parseInt(this.inputData,16).toString();
     }
 
+    return data;
+  }
+
+  private converFromBynari(data:any){
+
+    if(this.outOctal){
+      data =  this.verifyNeddsForAddZero(parseInt(data, 2).toString(8),"octal");
+    }
+    if(this.outDecimal){
+      data =  parseInt(data, 2).toString();
+    }
+    if(this.outHex){
+      data =  this.addSpace("hex",parseInt(data, 2).toString(16));
+    }
     return data;
   }
 
