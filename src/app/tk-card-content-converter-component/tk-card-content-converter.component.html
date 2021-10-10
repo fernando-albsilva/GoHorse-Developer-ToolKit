@@ -98,12 +98,12 @@
   <div class="text-areas-container">
     <div class="input-text-area">
       <button class="clip-board-btn" [cdkCopyToClipboard]="inputData" >Copy To Clipboard</button>
-      <textarea class="text-area" [(ngModel)]="inputData" name="inputData" spellcheck="false" (keyup)="checkChars()"></textarea>
+      <textarea class="text-area" [(ngModel)]="inputData" name="inputData" spellcheck="false" (keyup)="checkChars('input')"></textarea>
     </div>
 
     <div class="output-text-area">
       <button class="clip-board-btn" [cdkCopyToClipboard]="outputData" >Copy To Clipboard</button>
-      <textarea class="text-area" [(ngModel)]="outputData" name="outputData" spellcheck="false"></textarea>
+      <textarea class="text-area" [(ngModel)]="outputData" name="outputData" spellcheck="false" (keyup)="checkChars('output')"></textarea>
     </div>
   </div>
 
