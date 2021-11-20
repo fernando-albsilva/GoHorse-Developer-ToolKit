@@ -56,10 +56,10 @@ export class CardPasswordGeneratorComponent {
 
     let validChars = '';
 
-    if(this.useCapitalLetters) { validChars += capitalLetters;}
-    if(this.useLowerLetters) { validChars += lowerLetters;}
-    if(this.useNumbers) { validChars += numbers;}
-    if(this.useSymbols) { validChars += symbols;}
+    if(this.useCapitalLetters) {validChars += capitalLetters;}
+    if(this.useLowerLetters) {validChars += lowerLetters;}
+    if(this.useNumbers) {validChars += numbers;}
+    if(this.useSymbols) {validChars += symbols;}
 
     for (let index = 0; index < this.passwordLength; index++) {
       this.dataGenarated += validChars.charAt(this.getRandomInt(validChars.length -1));
@@ -67,8 +67,7 @@ export class CardPasswordGeneratorComponent {
   }
 
   private getRandomInt(maxValue: number) {
-    const minValue = 0;
-    return Math.floor(Math.random() * (maxValue - minValue));
+    return Math.floor(Math.random() * (maxValue));
   }
 
   private clearDataGenerated(){
