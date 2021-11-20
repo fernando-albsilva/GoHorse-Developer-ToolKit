@@ -9,12 +9,14 @@ import { CardContentConverterComponent } from '../tk-card-content-converter-comp
 import { CardContentTranslateKeysComponent } from '../tk-card-content-translate-keys-component/tk-card-content-translate-keys.component';
 import { CardContentWelcomeComponent } from '../tk-card-content-welcome-component/tk-card-content-welcome.component';
 import { CardContentPageInDevelopmentComponent } from './../tk-card-content-page-in-development-component/tk-card-content-page-in-development.component';
+import { CardPasswordGeneratorComponent } from '../tk-card-password-generator/tk-card-password-generator.component';
 
 export class ListOfComponents {
 
   public welcomeComponent :any = CardContentWelcomeComponent;
   public guidComponent:any = CardContentGuidComponent;
   public textComponent:any = CardContentTextComponent;
+  public passwordGenerator:any = CardPasswordGeneratorComponent;
   public sqlComponent:any = CardContentSqlComponent;
   public sqlViewComponent:any = CardContentSqlViewComponent;
   public converter:any = CardContentConverterComponent;
@@ -39,6 +41,28 @@ export class HomeComponent extends ListOfComponents implements OnInit, OnDestroy
   constructor(private resolver: ComponentFactoryResolver) {
     super();
   }
+
+  //                      `o.....-        `----`
+//                     --.   -.   `-....++
+//                   ````----/-` `-.+:/:`   ..
+//                    ..   `.  .  `--: ````-..`
+//                   +.`/  `..--      ``..----.
+//             `..   /+-. /    `/       `-.----`         `    `.
+//         -/--..:+--` .` +. /h-`   /       --:-      `+-+os/.+o+---`
+//         /h.d    ` :.    .-.      /         :/` `--.:     /d/o:--``.
+//         h-..    /h:+s`        `-`:            ..` `       `do::-.-.
+//         +y       ..`   .------.`.y               .-        :o--.:`
+//        +:    .----`````          m`        `.`+  +        --  .`
+//        s/y-o-.`:/::`             o+        /`:+.`.---.   s`
+//          hos `.:/.               .d        :./-    --:-:-
+//            `.//`                  +s+.    /-`       /--:/
+//                                     /so/ -:        `..`./.
+//                                     /: //        .-`    +-
+//                                     -. /:      ``.:`    +-
+//                                   .-    -+-   ./.  /   `..--
+//                                 `---      :.:  .-/:`  :.   .:
+//                               .:`  /    `.` `:.       `-::-`
+//                               `+o++/-   /:::-.`
 
   ngOnInit(): void {
 
@@ -69,6 +93,10 @@ export class HomeComponent extends ListOfComponents implements OnInit, OnDestroy
 
       case 'text':
           this.createComponent(this.textComponent);
+          break;
+
+      case 'passwordgenerator':
+          this.createComponent(this.passwordGenerator);
           break;
 
       case 'converter':

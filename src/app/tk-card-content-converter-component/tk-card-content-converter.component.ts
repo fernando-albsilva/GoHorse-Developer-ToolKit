@@ -21,7 +21,29 @@ export class CardContentConverterComponent {
   public inputData:string = "";
   public outputData:string = "";
 
+  constructor(){ }
 
+//                      `o.....-        `----`
+//                     --.   -.   `-....++
+//                   ````----/-` `-.+:/:`   ..
+//                    ..   `.  .  `--: ````-..`
+//                   +.`/  `..--      ``..----.
+//             `..   /+-. /    `/       `-.----`         `    `.
+//         -/--..:+--` .` +. /h-`   /       --:-      `+-+os/.+o+---`
+//         /h.d    ` :.    .-.      /         :/` `--.:     /d/o:--``.
+//         h-..    /h:+s`        `-`:            ..` `       `do::-.-.
+//         +y       ..`   .------.`.y               .-        :o--.:`
+//        +:    .----`````          m`        `.`+  +        --  .`
+//        s/y-o-.`:/::`             o+        /`:+.`.---.   s`
+//          hos `.:/.               .d        :./-    --:-:-
+//            `.//`                  +s+.    /-`       /--:/
+//                                     /so/ -:        `..`./.
+//                                     /: //        .-`    +-
+//                                     -. /:      ``.:`    +-
+//                                   .-    -+-   ./.  /   `..--
+//                                 `---      :.:  .-/:`  :.   .:
+//                               .:`  /    `.` `:.       `-::-`
+//                               `+o++/-   /:::-.`
 
   public selectCheckBox(option:string){
     switch (option) {
@@ -220,7 +242,10 @@ export class CardContentConverterComponent {
   }
 
   private convertToDecimal(data:any){
-
+    if(this.checkIfNumberIsToBig())
+    {
+      return;
+    }
     if(this.inBinary) {
       data = parseInt(this.inputData,2).toString();
     }
@@ -235,7 +260,10 @@ export class CardContentConverterComponent {
   }
 
   private converFromBynari(data:any){
-
+    if(this.checkIfNumberIsToBig())
+    {
+      return;
+    }
     if(this.outOctal){
       data =  this.verifyNeddsForAddZero(parseInt(data, 2).toString(8),"octal");
     }
@@ -249,6 +277,10 @@ export class CardContentConverterComponent {
   }
 
   private convertFromOctal(data:any){
+    if(this.checkIfNumberIsToBig())
+    {
+      return;
+    }
     if(this.outBinary){
       data =  this.verifyNeddsForAddZero(parseInt(data, 8).toString(2),"bin");
     }
@@ -262,7 +294,10 @@ export class CardContentConverterComponent {
   }
 
   private convertFromDecimal(data:any){
-
+    if(this.checkIfNumberIsToBig())
+    {
+      return;
+    }
     if(this.outBinary) {
       data = this.verifyNeddsForAddZero(parseInt(this.inputData).toString(2),"bin");
     }
@@ -277,6 +312,10 @@ export class CardContentConverterComponent {
   }
 
   private convertFromHex(data:any){
+    if(this.checkIfNumberIsToBig())
+    {
+      return;
+    }
     if(this.outBinary){
       data =  this.verifyNeddsForAddZero(parseInt(data, 16).toString(2),"bin");
     }
@@ -361,6 +400,16 @@ export class CardContentConverterComponent {
     }
 
     return data;
+  }
+
+  private checkIfNumberIsToBig(){
+      if (parseInt(this.inputData) > Number.MAX_SAFE_INTEGER)
+      {
+        alert("Can not convert because number is to big.");
+        this.outputData = "";
+        return true;
+      }
+      return false;
   }
 
   private clearKeys(){

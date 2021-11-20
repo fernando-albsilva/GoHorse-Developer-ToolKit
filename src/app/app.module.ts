@@ -18,6 +18,7 @@ import { CardContentSqlViewComponent } from './tk-card-content-sql-view-componen
 import { ClipboardModule } from '@angular/cdk/clipboard';
 import { CardContentHallOfShameComponent } from './tk-card-content-hall-of-shame-component/tk-card-content-hall-of-shame.component';
 import { CardContentConverterComponent } from './tk-card-content-converter-component/tk-card-content-converter.component';
+import { CardPasswordGeneratorComponent } from './tk-card-password-generator/tk-card-password-generator.component';
 
 
 
@@ -36,7 +37,8 @@ import { CardContentConverterComponent } from './tk-card-content-converter-compo
     CardContentPageInDevelopmentComponent,
     CardContentSqlViewComponent,
     CardContentHallOfShameComponent,
-    CardContentConverterComponent
+    CardContentConverterComponent,
+    CardPasswordGeneratorComponent
   ],
   imports: [
     BrowserModule,
