@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'tk-card-content-translate-keys',
-  templateUrl: './tk-card-content-translate-keys.component.html',
-  styleUrls: ['./tk-card-content-translate-keys.component.scss']
+    selector: 'tk-card-content-translate-keys',
+    templateUrl: './tk-card-content-translate-keys.component.html',
+    styleUrls: ['./tk-card-content-translate-keys.component.scss'],
+    standalone: false
 })
 export class CardContentTranslateKeysComponent {
 

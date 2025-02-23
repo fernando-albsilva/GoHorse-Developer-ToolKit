@@ -27,9 +27,10 @@ export class ListOfComponents {
 }
 
 @Component({
-  selector: 'tk-home',
-  templateUrl: './tk-home.component.html',
-  styleUrls: ['./tk-home.component.scss']
+    selector: 'tk-home',
+    templateUrl: './tk-home.component.html',
+    styleUrls: ['./tk-home.component.scss'],
+    standalone: false
 })
 export class HomeComponent extends ListOfComponents implements OnInit, OnDestroy, AfterViewInit {
 

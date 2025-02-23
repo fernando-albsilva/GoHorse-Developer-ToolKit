@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 
 
 @Component({
-  selector: 'tk-card-content-sql-view',
-  templateUrl: './tk-card-content-sql-view.component.html',
-  styleUrls: ['./tk-card-content-sql-view.component.scss']
+    selector: 'tk-card-content-sql-view',
+    templateUrl: './tk-card-content-sql-view.component.html',
+    styleUrls: ['./tk-card-content-sql-view.component.scss'],
+    standalone: false
 })
 export class CardContentSqlViewComponent {
 

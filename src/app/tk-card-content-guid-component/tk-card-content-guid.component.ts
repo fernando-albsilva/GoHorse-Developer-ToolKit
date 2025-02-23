@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 
 import { Guid } from 'guid-typescript';
 @Component({
-  selector: 'tk-card-content-guid',
-  templateUrl: './tk-card-content-guid.component.html',
-  styleUrls: ['./tk-card-content-guid.component.scss']
+    selector: 'tk-card-content-guid',
+    templateUrl: './tk-card-content-guid.component.html',
+    styleUrls: ['./tk-card-content-guid.component.scss'],
+    standalone: false
 })
 export class CardContentGuidComponent {
 

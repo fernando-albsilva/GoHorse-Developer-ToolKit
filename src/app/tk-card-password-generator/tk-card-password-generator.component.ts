@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'tk-card-password-generator',
-  templateUrl: './tk-card-password-generator.component.html',
-  styleUrls: ['./tk-card-password-generator.component.scss']
+    selector: 'tk-card-password-generator',
+    templateUrl: './tk-card-password-generator.component.html',
+    styleUrls: ['./tk-card-password-generator.component.scss'],
+    standalone: false
 })
 export class CardPasswordGeneratorComponent {
 

@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 
 
 @Component({
-  selector: 'tk-card-content-hall-of-shame',
-  templateUrl: './tk-card-content-hall-of-shame.component.html',
-  styleUrls: ['./tk-card-content-hall-of-shame.component.scss']
+    selector: 'tk-card-content-hall-of-shame',
+    templateUrl: './tk-card-content-hall-of-shame.component.html',
+    styleUrls: ['./tk-card-content-hall-of-shame.component.scss'],
+    standalone: false
 })
 export class CardContentHallOfShameComponent {
 

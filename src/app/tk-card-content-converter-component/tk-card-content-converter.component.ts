@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'tk-card-content-converter',
-  templateUrl: './tk-card-content-converter.component.html',
-  styleUrls: ['./tk-card-content-converter.component.scss']
+    selector: 'tk-card-content-converter',
+    templateUrl: './tk-card-content-converter.component.html',
+    styleUrls: ['./tk-card-content-converter.component.scss'],
+    standalone: false
 })
 export class CardContentConverterComponent {
 

@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 
 
 @Component({
-  selector: 'tk-card-content-text',
-  templateUrl: './tk-card-content-text.component.html',
-  styleUrls: ['./tk-card-content-text.component.scss']
+    selector: 'tk-card-content-text',
+    templateUrl: './tk-card-content-text.component.html',
+    styleUrls: ['./tk-card-content-text.component.scss'],
+    standalone: false
 })
 export class CardContentTextComponent {
 

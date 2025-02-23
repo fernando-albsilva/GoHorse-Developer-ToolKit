@@ -2,9 +2,10 @@ import { Component, EventEmitter, Output } from '@angular/core';
 
 
 @Component({
-  selector: 'tk-menu-side-tools',
-  templateUrl: './tk-menu-side-tools.component.html',
-  styleUrls: ['./tk-menu-side-tools.component.scss']
+    selector: 'tk-menu-side-tools',
+    templateUrl: './tk-menu-side-tools.component.html',
+    styleUrls: ['./tk-menu-side-tools.component.scss'],
+    standalone: false
 })
 export class MenuSideTools {
 
