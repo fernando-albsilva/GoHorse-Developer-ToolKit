@@ -74,18 +74,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "GoHorseDeveloperToolKit:build"
+            "buildTarget": "GoHorseDeveloperToolKit:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "GoHorseDeveloperToolKit:build:production"
+              "buildTarget": "GoHorseDeveloperToolKit:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "GoHorseDeveloperToolKit:build"
+            "buildTarget": "GoHorseDeveloperToolKit:build"
           }
         },
         "test": {
