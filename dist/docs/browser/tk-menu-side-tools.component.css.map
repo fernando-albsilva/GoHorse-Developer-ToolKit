@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/tk-menu-side-tools-component/tk-menu-side-tools.component.scss"],
+  "sourcesContent": [".menu-container{\n  height: 100%;\n  width: 200px;\n  box-sizing: border-box;\n  border-radius: 4px;\n  border:1px solid #444c56;\n  background-color: #2d333b;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  padding: 20px;\n\n  .side-menu-btn{\n    margin-bottom: 10px;\n  }\n}\n"],
+  "mappings": ";AAAA,CAAA;AACE,UAAA;AACA,SAAA;AACA,cAAA;AACA,iBAAA;AACA,UAAA,IAAA,MAAA;AACA,oBAAA;AACA,WAAA;AACA,kBAAA;AACA,eAAA;AACA,WAAA;;AAEA,CAZF,eAYE,CAAA;AACE,iBAAA;;",
+  "names": []
+}
